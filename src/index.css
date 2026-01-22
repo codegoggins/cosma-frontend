@@ -1,1 +1,144 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-preahvihear: "Preahvihear", sans-serif;
+
+  --color-status-red-text: var(--color-status-red-text);
+  --color-status-red-bg: var(--color-status-red-bg);
+  --color-status-green-text: var(--color-status-green-text);
+  --color-status-green-bg: var(--color-status-green-bg);
+  --color-status-yellow: var(--color-status-yellow);
+  --color-status-pending-text: var(--color-status-pending-text);
+  --color-status-pending-bg: var(--color-status-pending-bg);
+  --color-status-info-text: var(--color-status-info-text);
+  --color-status-info-bg: var(--color-status-info-bg);
+
+  --color-bg-search: var(--color-bg-search);
+  --color-bg-select: var(--color-bg-select);
+  --color-bg-card: var(--color-bg-card);
+  --color-bg-card-alt: var(--color-bg-card-alt);
+}
+
+:root {
+  /* Core Colors */
+  --background: #ffffff;
+  --foreground: #0f1715; /* Blackish */
+
+  --primary: #0f1715;
+  --primary-foreground: #ffffff;
+
+  --secondary: #bcbdbd; /* Dark Gray */
+  --secondary-foreground: #0f1715;
+
+  --muted: #f6f6f6;
+  --muted-foreground: #71717a;
+
+  --accent: #f7f7f7;
+  --accent-foreground: #0f1715;
+
+  --destructive: #d7525b; /* Red Text */
+  --destructive-foreground: #ffffff;
+
+  --border: #f0f0f0;
+  --input: #f0f0f0; /* Search bar bg */
+  --ring: #0f1715;
+
+  /* Custom Status Colors */
+  --color-status-red-text: #d7525b;
+  --color-status-red-bg: #ffc6d0;
+
+  --color-status-green-text: #073531;
+  --color-status-green-bg: #e7fce0;
+
+  --color-status-yellow: #f4b141; /* Star rating */
+
+  --color-status-pending-text: #9a6b16; /* Gold Text */
+  --color-status-pending-bg: #fff8e1; /* Gold Bg */
+
+  --color-status-info-text: #004e66; /* Blue Text */
+  --color-status-info-bg: #e1f5fe; /* Blue Bg */
+
+  --color-bg-search: #f0f0f0;
+  --color-bg-select: #fafafa;
+  --color-bg-card: #f6f6f6;
+  --color-bg-card-alt: #f7f7f7;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+.dark {
+  /* Dark mode mapping (Inferred or kept standard for now as user only gave light colors) */
+  --background: #09090b;
+  --foreground: #fafafa;
+
+  --primary: #fafafa;
+  --primary-foreground: #18181b;
+
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+
+  --accent: #27272a;
+  --accent-foreground: #fafafa;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fafafa;
+
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #d4d4d8;
+
+  /* Keep status colors same or adjust for dark mode visibility */
+  --color-status-red-text: #ffc6d0;
+  --color-status-red-bg: #7f1d1d;
+
+  --color-status-green-text: #e7fce0;
+  --color-status-green-bg: #073531;
+
+  --color-status-yellow: #f4b141;
+
+  --color-bg-search: #27272a;
+  --color-bg-select: #27272a;
+  --color-bg-card: #18181b;
+  --color-bg-card-alt: #27272a;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
