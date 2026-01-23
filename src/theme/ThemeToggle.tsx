@@ -20,7 +20,6 @@ export function ThemeToggle() {
           ${isDark ? "scale-100 rotate-0" : "scale-0 -rotate-90"}
         `}
       />
-      <span className="sr-only">Toggle theme</span>
     </div>
   );
 }

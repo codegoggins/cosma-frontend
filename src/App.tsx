@@ -1,14 +1,13 @@
+import { RouterProvider } from "react-router-dom";
 import { AntdConfig } from "./config/AntdConfig";
 import { ThemeProvider } from "./theme/ThemeProvider";
-import { ThemeToggle } from "./theme/ThemeToggle";
+import { router } from "./router";
 
 const App = () => {
   return (
     <ThemeProvider defaultTheme="light" storageKey="cosma-theme">
       <AntdConfig>
-        <div className="w-full h-40 bg-yellow-100">
-          <ThemeToggle />
-        </div>
+        <RouterProvider router={router} />
       </AntdConfig>
     </ThemeProvider>
   );
