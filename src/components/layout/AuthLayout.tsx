@@ -28,7 +28,7 @@ const AuthLayout = () => {
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.4 }}
               className="h-full w-full object-cover"
               alt={`Slide ${currentIndex + 1}`}
             />
@@ -53,8 +53,9 @@ const AuthLayout = () => {
         </div>
       </div>
       <div className="flex-1 w-full h-full p-6">
-        <h1>Right Section</h1>
-        <Outlet />
+        <div className="w-full h-full">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

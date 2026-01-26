@@ -36,6 +36,8 @@ export const getAntdTheme = (isDarkMode: boolean): ThemeConfig => {
         activeBorderColor: colors.primary,
         hoverBorderColor: colors.primary,
         colorTextPlaceholder: isDarkMode ? "#a1a1aa" : "#a1a1aa", // muted-foreground
+        activeShadow: "none",
+        controlHeight: 38,
       },
       Select: {
         colorBgContainer: colors.selectBg,
