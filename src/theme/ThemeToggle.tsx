@@ -8,7 +8,7 @@ export function ThemeToggle() {
   return (
     <div
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="h-12 w-12 flex items-center justify-center rounded-md p-2 text-black"
+      className="h-12 w-12 flex items-center justify-center rounded-md p-2 text-primary"
     >
       <MdOutlineLightMode
         className={`absolute h-5 w-5 transition-all duration-300 ease-in-out

@@ -7,11 +7,17 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import NotFound from "../components/shared/NotFound";
 import { authRoutes } from "../views/auth/router";
 import { dashboardRoutes } from "../views/dashboard/router";
+import { PublicLayout } from "../components/layout/PublicLayout";
+import { publicRoutes } from "../views/public/router";
 
 export const routes: RouteObject[] = [
   {
     element: <AuthLayout />,
     children: authRoutes,
+  },
+  {
+    element: <PublicLayout />,
+    children: publicRoutes,
   },
   {
     path: "/",

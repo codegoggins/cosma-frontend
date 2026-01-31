@@ -46,6 +46,9 @@ export const getAntdTheme = (isDarkMode: boolean): ThemeConfig => {
         colorText: colors.text,
         colorBorder: colors.border,
         selectorBg: colors.selectBg,
+        controlOutline: "none",
+        controlOutlineWidth: 0,
+        boxShadow: "none",
       },
       Tabs: {
         itemSelectedColor: colors.primary,
