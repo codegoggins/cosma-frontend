@@ -1,8 +1,14 @@
-import { Input } from "antd";
+import { Collapse, Drawer, Input } from "antd";
+import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
+import { IoMenuSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
+const { Panel } = Collapse;
+
 const ProductsNavbar = () => {
+  const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
+
   const menuItems = [
     {
       label: "NEW ARRIVAL",
@@ -34,13 +40,13 @@ const ProductsNavbar = () => {
 
   return (
     <div className="flex items-center justify-between gap-12">
-      <div className="hidden md:flex flex-1 max-w-xl">
+      <div className="flex flex-1 max-w-xl">
         <Input
           placeholder="Search"
           prefix={<IoMdSearch className="text-muted-foreground w-4 h-4" />}
         />
       </div>
-      <div className="hidden md:flex items-center gap-6 text-muted-foreground">
+      <div className="hidden lg:flex items-center gap-6 text-muted-foreground">
         {menuItems.map((item, index) => (
           <div className="relative group cursor-pointer" key={index}>
             <span className="hover:text-primary transition-colors py-2 block">
@@ -97,6 +103,65 @@ const ProductsNavbar = () => {
           </div>
         ))}
       </div>
+      <button
+        className="lg:hidden p-2 transition-colours"
+        onClick={() => setOpenMobileMenu(true)}
+      >
+        <IoMenuSharp className="h-8 w-8" />
+      </button>
+      <Drawer
+        open={openMobileMenu}
+        placement="right"
+        title={"Menu"}
+        onClose={() => setOpenMobileMenu(false)}
+      >
+        <Collapse expandIconPlacement="end" ghost>
+          {menuItems.map((item) =>
+            item?.categories?.length > 0 ? (
+              <Panel
+                header={<span className="font-semibold">{item.label}</span>}
+                key={item.label}
+              >
+                <div className="space-y-4">
+                  {item.categories.map((section, idx) => (
+                    <div key={idx}>
+                      <h4 className="font-bold text-sm text-primary mb-2">
+                        {section.title}
+                      </h4>
+                      <div className="space-y-1">
+                        {section.items.map((cat, catIdx) => (
+                          <Link
+                            key={catIdx}
+                            to={`/products/category/${cat}`}
+                            onClick={() => setOpenMobileMenu(false)}
+                            className="block py-1 text-sm text-muted-foreground! hover:text-primary transition-colors"
+                          >
+                            {cat}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Panel>
+            ) : (
+              <div
+                key={item.label}
+                className="py-3 px-4 border-b border-border"
+              >
+                <Link
+                  to={`/products/${item.label.toLowerCase().replace(" ", "-")}`}
+                  onClick={() => setOpenMobileMenu(false)}
+                  className="font-semibold hover:text-primary transition-colors text-muted-foreground!"
+                >
+                  {item.label}
+                </Link>
+              </div>
+            ),
+          )}
+        </Collapse>
+      </Drawer>
+      {/* Banner */}
     </div>
   );
 };

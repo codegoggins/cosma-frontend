@@ -15,7 +15,7 @@ export function PublicLayout() {
           <CosmaLogo />
         </Link>
 
-        <div className="flex items-center gap-6">
+        <div className="hidden sm:flex items-center gap-6">
           <Link
             to="/products"
             className="text-sm font-medium hover:text-primary transition-colors"
